@@ -15,13 +15,13 @@
             int[] asc3 = ArraySorter.insertionSort(data, ArraySorter.Order.ASCENDING);
             int[] desc3 = ArraySorter.insertionSort(input, ArraySorter.Order.DESCENDING);
             String[] ascString = ArraySorter.bubbleSort(InputString, ArraySorter.Order.ASCENDING);
-            String[] descString2 = ArraySorter.bubbleSort(InputString, ArraySorter.Order.DESCENDING);
-            String[] ascStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.ASCENDING);
-            String[] descStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
-            String[] ascStringinsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.ASCENDING);
-            String[] descStringinsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.DESCENDING);
-            String[] ascStringoneloop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.ASCENDING);
-            String[] descStringoneloop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] descString = ArraySorter.bubbleSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascStringSelect = ArraySorter.selectionSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descStringSelect = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascStringInsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descStringInsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascStringOneLoop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descStringOneLoop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.DESCENDING);
             System.out.println(Arrays.toString(asc));
             System.out.println(Arrays.toString(desc));
             System.out.println(Arrays.toString(asc2));
@@ -29,13 +29,13 @@
             System.out.println(Arrays.toString(asc3));
             System.out.println(Arrays.toString(desc3));
             System.out.println(Arrays.toString(ascString));
-            System.out.println(Arrays.toString(descString2));
-            System.out.println(Arrays.toString(ascStringselect));
-            System.out.println(Arrays.toString(descStringselect));
-            System.out.println(Arrays.toString(ascStringinsert));
-            System.out.println(Arrays.toString(descStringinsert));
-            System.out.println(Arrays.toString(ascStringoneloop));
-            System.out.println(Arrays.toString(descStringoneloop));
+            System.out.println(Arrays.toString(descString));
+            System.out.println(Arrays.toString(ascStringSelect));
+            System.out.println(Arrays.toString(descStringSelect));
+            System.out.println(Arrays.toString(ascStringInsert));
+            System.out.println(Arrays.toString(descStringInsert));
+            System.out.println(Arrays.toString(ascStringOneLoop));
+            System.out.println(Arrays.toString(descStringOneLoop));
 
         }
     }
