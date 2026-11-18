@@ -118,19 +118,19 @@ public final class ArraySorter {
     public static String[] bubbleSort(String[] input, Order order) {
         String[] data = input.clone();
         for (int i = 0; i < data.length - 1; i++) {
-            if (order == Order.ASCENDING) {
-                if (data[i].compareTo(data[i + 1]) > 0) {
-                    String temp = data[i];
-                    data[i] = data[i + 1];
-                    data[i + 1] = temp;
-                    i = -1;
-                }
-            } else if (order == Order.DESCENDING) {
-                if (data[i].compareTo(data[i + 1]) < 0) {
-                    String temp = data[i];
-                    data[i] = data[i + 1];
-                    data[i + 1] = temp;
-                    i = -1;
+            for (int j = 0; j < data.length - i - 1; j++) {
+                if (order == Order.ASCENDING) {
+                    if (data[j].compareTo(data[j + 1]) > 0) {
+                        String temp = data[j];
+                        data[j] = data[j + 1];
+                        data[j + 1] = temp;
+                    }
+                } else if (order == Order.DESCENDING) {
+                    if (data[j].compareTo(data[j + 1]) < 0) {
+                        String temp = data[j];
+                        data[j] = data[j + 1];
+                        data[j + 1] = temp;
+                    }
                 }
             }
         }
@@ -177,6 +177,28 @@ public final class ArraySorter {
                     data[j + 1] = data[j];
                     insert_index = j;
                     j--;
+                }
+            }
+        }
+        return data;
+    }
+
+    public static String[] oneloopSort(String[] input, Order order) {
+        String[] data = input.clone();
+        for (int i = 0; i < data.length - 1; i++) {
+            if (order == Order.ASCENDING) {
+                if (data[i].compareTo(data[i + 1]) > 0) {
+                    String temp = data[i];
+                    data[i] = data[i + 1];
+                    data[i + 1] = temp;
+                    i = -1;
+                }
+            } else if (order == Order.DESCENDING) {
+                if (data[i].compareTo(data[i + 1]) < 0) {
+                    String temp = data[i];
+                    data[i] = data[i + 1];
+                    data[i + 1] = temp;
+                    i = -1;
                 }
             }
         }
