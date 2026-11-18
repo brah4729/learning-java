@@ -5,6 +5,7 @@ public class main {
         int[] input = {64, 34, 25, 12, 22, 11, 90, 5};
         int[] data = {5, 2, 9, 1};
         String[] InputString = {"a", "b", "c", "d", "a", "b", "c", "d", "b", "a"};
+        String InputStringNoArray = "abcdabcdba";
         int[] asc = ArraySorter.bubbleSort(input, ArraySorter.Order.ASCENDING);
         int[] desc = ArraySorter.bubbleSort(input, ArraySorter.Order.DESCENDING);
         int[] asc2 = ArraySorter.selectionSort(input, ArraySorter.Order.ASCENDING);
@@ -17,7 +18,7 @@ public class main {
         String[] descStringSelect = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
         String[] ascStringInsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.ASCENDING);
         String[] descStringInsert = ArraySorter.insertionSort(InputString, ArraySorter.Order.DESCENDING);
-        String[] ascStringOneLoop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.ASCENDING);
-        String[] descStringOneLoop = ArraySorter.oneloopSort(InputString, ArraySorter.Order.DESCENDING);
+        String ascStringOneLoop = ArraySorter.oneloopSort(InputStringNoArray, ArraySorter.Order.ASCENDING);
+        String descStringOneLoop = ArraySorter.oneloopSort(InputStringNoArray, ArraySorter.Order.DESCENDING);
     }
 }

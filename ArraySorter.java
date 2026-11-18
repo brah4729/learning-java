@@ -179,25 +179,25 @@ public final class ArraySorter {
         return data;
     }
 
-    public static String[] oneloopSort(String[] input, Order order) {
-        String[] data = input.clone();
+    public static String oneloopSort(String input, Order order) {
+        char[] data = input.toCharArray();
         for (int i = 0; i < data.length - 1; i++) {
             if (order == Order.ASCENDING) {
-                if (data[i].compareTo(data[i + 1]) > 0) {
-                    String temp = data[i];
+                if (data[i] > data[i + 1]) {
+                    char temp = data[i];
                     data[i] = data[i + 1];
                     data[i + 1] = temp;
                     i = -1;
                 }
             } else if (order == Order.DESCENDING) {
-                if (data[i].compareTo(data[i + 1]) < 0) {
-                    String temp = data[i];
+                if (data[i] < (data[i + 1])){
+                    char temp = data[i];
                     data[i] = data[i + 1];
                     data[i + 1] = temp;
                     i = -1;
                 }
             }
         }
-        return data;
+        return new String(data);
     }
 }
