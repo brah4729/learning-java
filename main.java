@@ -14,8 +14,10 @@
             int[] desc2 = ArraySorter.selectionSort(input, ArraySorter.Order.DESCENDING);
             int[] desc3 = ArraySorter.insertionSort(data, ArraySorter.Order.ASCENDING);
             int[] desc4 = ArraySorter.insertionSort(input, ArraySorter.Order.DESCENDING);
-            String[] ascString = ArraySorter.stringsort(InputString, ArraySorter.Order.ASCENDING);
-            String[] ascString2 = ArraySorter.stringsort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascString = ArraySorter.bubbleSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descString2 = ArraySorter.bubbleSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
             System.out.println(Arrays.toString(asc));
             System.out.println(Arrays.toString(asc2));
             System.out.println(Arrays.toString(desc));
@@ -23,6 +25,9 @@
             System.out.println(Arrays.toString(desc3));
             System.out.println(Arrays.toString(desc4));
             System.out.println(Arrays.toString(ascString));
-            System.out.println(Arrays.toString(ascString2));
+            System.out.println(Arrays.toString(descString2));
+            System.out.println(Arrays.toString(ascStringselect));
+            System.out.println(Arrays.toString(descStringselect));
+
         }
     }

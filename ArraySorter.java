@@ -83,9 +83,9 @@ public final class ArraySorter {
         if (order == Order.ASCENDING) {
             for (int i = 0; i < data.length; i++) {
                 int insert_index = i;
-                System.out.println("insert_index is " + i);
+                // System.out.println("insert_index is " + i);
                 int current_value = data[i];
-                System.out.println("current_value is " + data[i]);
+                // System.out.println("current_value is " + data[i]);
                 int j = i - 1;
                 System.out.println("J is " + j);
                 while (j >= 0 && data[j] > current_value) {
@@ -115,7 +115,7 @@ public final class ArraySorter {
         return data;
     }
 
-    public static String[] stringsort(String[] input, Order order) {
+    public static String[] bubbleSort(String[] input, Order order) {
         String[] data = input.clone();
         for (int i = 0; i < data.length - 1; i++) {
             if (order == Order.ASCENDING) {
@@ -133,6 +133,34 @@ public final class ArraySorter {
                     i = -1;
                 }
             }
-        }return data;
+        }
+        return data;
+    }
+
+    public static String[] selectionSort(String[] input, Order order) {
+        String[] data = input.clone();
+        for (int i = 0; i < data.length; i++) {
+            int min_index = i;
+            for (int j = i + 1; j < data.length; j++) {
+                if (order == Order.ASCENDING) {
+                if (data[j].compareTo(data[min_index]) < 0) {
+                    min_index = j;
+                }
+                }else if (order == Order.DESCENDING) {
+                    if (data[j].compareTo(data[min_index]) > 0) {
+                    min_index = j;
+                }
+                }
+                
+            }
+            String min_value = data[min_index];
+            data[min_index] = data[i];
+            data[i] = min_value;
+        }
+        return data;
+    }
+    public static String[] insertionSort(String[] input, Order order) {
+        String[] data = input.clone();
+        return data;
     }
 }
