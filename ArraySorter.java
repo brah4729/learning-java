@@ -143,15 +143,15 @@ public final class ArraySorter {
             int min_index = i;
             for (int j = i + 1; j < data.length; j++) {
                 if (order == Order.ASCENDING) {
-                if (data[j].compareTo(data[min_index]) < 0) {
-                    min_index = j;
-                }
-                }else if (order == Order.DESCENDING) {
+                    if (data[j].compareTo(data[min_index]) < 0) {
+                        min_index = j;
+                    }
+                } else if (order == Order.DESCENDING) {
                     if (data[j].compareTo(data[min_index]) > 0) {
-                    min_index = j;
+                        min_index = j;
+                    }
                 }
-                }
-                
+
             }
             String min_value = data[min_index];
             data[min_index] = data[i];
@@ -159,8 +159,27 @@ public final class ArraySorter {
         }
         return data;
     }
+
     public static String[] insertionSort(String[] input, Order order) {
         String[] data = input.clone();
+        for (int i = 0; i < data.length; i++) {
+            int insert_index = i;
+            String current_value = data[i];
+            int j = i - 1;
+            if (order == Order.ASCENDING) {
+                while (j >= 0 && data[j].compareTo(current_value) > 0) {
+                    data[j + 1] = data[j];
+                    insert_index = j;
+                    j--;
+                }
+            } else if (order == Order.DESCENDING) {
+                while (j >= 0 && data[j].compareTo(current_value) > 0) {
+                    data[j + 1] = data[j];
+                    insert_index = j;
+                    j--;
+                }
+            }
+        }
         return data;
     }
 }

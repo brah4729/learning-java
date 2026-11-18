@@ -18,6 +18,8 @@
             String[] descString2 = ArraySorter.bubbleSort(InputString, ArraySorter.Order.DESCENDING);
             String[] ascStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.ASCENDING);
             String[] descStringselect = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
+            String[] ascStringinsert = ArraySorter.selectionSort(InputString, ArraySorter.Order.ASCENDING);
+            String[] descStringinsert = ArraySorter.selectionSort(InputString, ArraySorter.Order.DESCENDING);
             System.out.println(Arrays.toString(asc));
             System.out.println(Arrays.toString(asc2));
             System.out.println(Arrays.toString(desc));
@@ -28,6 +30,8 @@
             System.out.println(Arrays.toString(descString2));
             System.out.println(Arrays.toString(ascStringselect));
             System.out.println(Arrays.toString(descStringselect));
+            System.out.println(Arrays.toString(ascStringinsert));
+            System.out.println(Arrays.toString(descStringinsert));
 
         }
     }
