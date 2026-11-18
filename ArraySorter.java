@@ -1,6 +1,4 @@
 
-import java.util.*;
-
 public final class ArraySorter {
 
     public enum Order {
@@ -83,21 +81,19 @@ public final class ArraySorter {
         if (order == Order.ASCENDING) {
             for (int i = 0; i < data.length; i++) {
                 int insert_index = i;
-                // System.out.println("insert_index is " + i);
+
                 int current_value = data[i];
-                // System.out.println("current_value is " + data[i]);
+
                 int j = i - 1;
-                System.out.println("J is " + j);
+
                 while (j >= 0 && data[j] > current_value) {
                     data[j + 1] = data[j];
                     insert_index = j;
-                    System.out.println("J is " + j);
-                    System.out.println("data[j+1] is " + data[j]);
                     j--;
-                    System.out.println("insert_index is " + j);
+
                 }
                 data[insert_index] = current_value;
-                System.out.println("data is " + Arrays.toString(data));
+
             }
         } else if (order == Order.DESCENDING) {
             for (int i = 0; i < data.length; i++) {
