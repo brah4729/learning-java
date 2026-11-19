@@ -1,8 +1,34 @@
 
-public final class ArraySorter {
+/**
+ * Provides static sorting methods for {@code int[]} arrays and {@link String} objects
+ * using bubble sort, selection sort, insertion sort, and a single-pass variant sort.
+ * <p>
+ * All array-based sort methods operate on a copy of the input array and return a new
+ * sorted array, leaving the original array unchanged. String-based sort methods return
+ * a new {@link String} whose characters are sorted by their Unicode char values.
+ * <p>
+ * This class cannot be instantiated.
+ */
+public final class IntArrayAndStringSorter {
 
+    /**
+     * Specifies the sort order used by the sorting methods in this class.
+     */
     public enum Order {
-        ASCENDING, DESCENDING
+        /**
+         * Sort from smallest to largest.
+         */
+        ASCENDING,
+        /**
+         * Sort from largest to smallest.
+         */
+        DESCENDING
+    }
+
+    /**
+     * Prevents instantiation of this utility class. All methods are static.
+     */
+    private IntArrayAndStringSorter() {
     }
 
     /**
@@ -40,6 +66,14 @@ public final class ArraySorter {
         return data;
     }
 
+    /**
+     * Sorts a copy of the given array using selection sort.
+     *
+     * @param input the array to sort; must not be null
+     * @param order {@link Order#ASCENDING} or {@link Order#DESCENDING}
+     * @return a new sorted array; the input array is left unchanged
+     * @throws NullPointerException if {@code input} is {@code null}
+     */
     public static int[] selectionSort(int[] input, Order order) {
         //ascending
         int[] data = input.clone();
@@ -76,14 +110,20 @@ public final class ArraySorter {
         return data;
     }
 
+    /**
+     * Sorts a copy of the given array using insertion sort.
+     *
+     * @param input the array to sort; must not be null
+     * @param order {@link Order#ASCENDING} or {@link Order#DESCENDING}
+     * @return a new sorted array; the input array is left unchanged
+     * @throws NullPointerException if {@code input} is {@code null}
+     */
     public static int[] insertionSort(int[] input, Order order) {
         int[] data = input.clone();
         if (order == Order.ASCENDING) {
             for (int i = 0; i < data.length; i++) {
                 int insert_index = i;
-
                 int current_value = data[i];
-
                 int j = i - 1;
 
                 while (j >= 0 && data[j] > current_value) {
@@ -92,6 +132,7 @@ public final class ArraySorter {
                     j--;
 
                 }
+
                 data[insert_index] = current_value;
 
             }
@@ -100,103 +141,111 @@ public final class ArraySorter {
                 int insert_index = i;
                 int current_value = data[i];
                 int j = i - 1;
+                
                 while (j >= 0 && data[j] < current_value) {
                     data[j + 1] = data[j];
                     insert_index = j;
                     j--;
                 }
+                
                 data[insert_index] = current_value;
             }
         }
         return data;
     }
 
-    public static String[] bubbleSort(String[] input, Order order) {
-        String[] data = input.clone();
+    /**
+     * Returns a new string whose characters are sorted using bubble sort.
+     * Sorting is performed on the Unicode char values of the string.
+     *
+     * @param input the string to sort; must not be null
+     * @param order {@link Order#ASCENDING} or {@link Order#DESCENDING}
+     * @return a new string with the same characters in sorted order
+     * @throws NullPointerException if {@code input} is {@code null}
+     */
+    public static String bubbleSort(String input, Order order) {
+        char[] data = input.toCharArray();
         for (int i = 0; i < data.length - 1; i++) {
             for (int j = 0; j < data.length - i - 1; j++) {
                 if (order == Order.ASCENDING) {
-                    if (data[j].compareTo(data[j + 1]) > 0) {
-                        String temp = data[j];
+                    if (data[j] > data[j + 1]) {
+                        char temp = data[j];
                         data[j] = data[j + 1];
                         data[j + 1] = temp;
                     }
                 } else if (order == Order.DESCENDING) {
-                    if (data[j].compareTo(data[j + 1]) < 0) {
-                        String temp = data[j];
+                    if (data[j] < data[j + 1]) {
+                        char temp = data[j];
                         data[j] = data[j + 1];
                         data[j + 1] = temp;
                     }
                 }
             }
         }
-        return data;
+        return new String(data);
     }
 
-    public static String[] selectionSort(String[] input, Order order) {
-        String[] data = input.clone();
+    /**
+     * Returns a new string whose characters are sorted using selection sort.
+     * Sorting is performed on the Unicode char values of the string.
+     *
+     * @param input the string to sort; must not be null
+     * @param order {@link Order#ASCENDING} or {@link Order#DESCENDING}
+     * @return a new string with the same characters in sorted order
+     * @throws NullPointerException if {@code input} is {@code null}
+     */
+    public static String selectionSort(String input, Order order) {
+        char[] data = input.toCharArray();
         for (int i = 0; i < data.length; i++) {
             int min_index = i;
             for (int j = i + 1; j < data.length; j++) {
                 if (order == Order.ASCENDING) {
-                    if (data[j].compareTo(data[min_index]) < 0) {
+                    if (data[j] < data[min_index]) {
                         min_index = j;
                     }
                 } else if (order == Order.DESCENDING) {
-                    if (data[j].compareTo(data[min_index]) > 0) {
+                    if (data[j] > data[min_index]) {
                         min_index = j;
                     }
                 }
 
             }
-            String min_value = data[min_index];
+            char min_value = data[min_index];
             data[min_index] = data[i];
             data[i] = min_value;
         }
-        return data;
+        return new String(data);
     }
 
-    public static String[] insertionSort(String[] input, Order order) {
-        String[] data = input.clone();
+    /**
+     * Returns a new string whose characters are sorted using insertion sort.
+     * Sorting is performed on the Unicode char values of the string.
+     *
+     * @param input the string to sort; must not be null
+     * @param order {@link Order#ASCENDING} or {@link Order#DESCENDING}
+     * @return a new string with the same characters in sorted order
+     * @throws NullPointerException if {@code input} is {@code null}
+     */
+    public static String insertionSort(String input, Order order) {
+        char[] data = input.toCharArray();
         for (int i = 0; i < data.length; i++) {
             int insert_index = i;
-            String current_value = data[i];
+            char current_value = data[i];
             int j = i - 1;
             if (order == Order.ASCENDING) {
-                while (j >= 0 && data[j].compareTo(current_value) > 0) {
+                while (j >= 0 && data[j] > (current_value)) {
                     data[j + 1] = data[j];
                     insert_index = j;
                     j--;
                 }
             } else if (order == Order.DESCENDING) {
-                while (j >= 0 && data[j].compareTo(current_value) > 0) {
+                while (j >= 0 && data[j] < (current_value)) {
                     data[j + 1] = data[j];
                     insert_index = j;
                     j--;
                 }
             }
-        }
-        return data;
-    }
-
-    public static String oneloopSort(String input, Order order) {
-        char[] data = input.toCharArray();
-        for (int i = 0; i < data.length - 1; i++) {
-            if (order == Order.ASCENDING) {
-                if (data[i] > data[i + 1]) {
-                    char temp = data[i];
-                    data[i] = data[i + 1];
-                    data[i + 1] = temp;
-                    i = -1;
-                }
-            } else if (order == Order.DESCENDING) {
-                if (data[i] < (data[i + 1])){
-                    char temp = data[i];
-                    data[i] = data[i + 1];
-                    data[i + 1] = temp;
-                    i = -1;
-                }
-            }
+            data[insert_index] = current_value;
         }
         return new String(data);
     }
